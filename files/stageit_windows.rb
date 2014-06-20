@@ -16,7 +16,6 @@ module MCollective
         file.close
         puppet = "C:/Program Files (x86)/Puppet Labs/Puppet Enterprise/bin/puppet.bat"
         command = "cmd /c #{puppet} apply #{path} --detailed-exitcodes"
-
         reply[:status] = run(command,:stdout => :out, :stderr => :err, :chomp => true)
         file.unlink
         reply
