@@ -2,7 +2,7 @@ class stageit::windows {
 
   file { 'C:/ProgramData/PuppetLabs/mcollective/etc/plugins/mcollective/agent/stageit.rb':
     ensure => file,
-    source => 'puppet:///modules/stageit/stageit_win.rb',
+    source => 'puppet:///modules/stageit/stageit_windows.rb',
     owner  => Administrator,
     group  => Administrators,
     mode   => '0644',
