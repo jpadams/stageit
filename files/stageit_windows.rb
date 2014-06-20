@@ -14,7 +14,7 @@ module MCollective
         manifest = Base64.decode64(request[:manifest])
         file.write(manifest)
         file.close
-        command = "C:/Program Files (x86)/Puppet Labs/Puppet Enterprise/bin/puppet.bat apply #{path} --detailed-exitcodes"
+        command = "cmd /c C:/Program Files (x86)/Puppet Labs/Puppet Enterprise/bin/puppet.bat apply #{path} --detailed-exitcodes"
 
         reply[:status] = run(command,:stdout => :out, :stderr => :err, :chomp => true)
         file.unlink
