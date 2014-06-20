@@ -2,20 +2,19 @@ module MCollective
   module Agent
     class Stageit<RPC::Agent
       activate_when do
-        Facts["kernel"] != "windows"
+        Facts["kernel"] == "windows"
       end
 
       action "run" do
         require 'tempfile'
+        require "base64"
 
         file = Tempfile.new('stageit')
         path = file.path
+        manifest = Base64.decode64(request[:manifest])
+        file.write(manifest)
         file.close
-
-        command = "/opt/puppet/bin/puppet apply #{path} --detailed-exitcodes"
-
-        create_manifest = "echo " + request[:manifest] + " | base64 -d > " + path
-        `#{create_manifest}`
+        command = "C:/Program Files (x86)/Puppet Labs/Puppet Enterprise/bin/puppet.bat apply #{path} --detailed-exitcodes"
 
         reply[:status] = run(command,:stdout => :out, :stderr => :err, :chomp => true)
         file.unlink
