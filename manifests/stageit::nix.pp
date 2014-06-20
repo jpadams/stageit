@@ -1,4 +1,4 @@
-class stageit {
+class stageit::nix {
 
   file { '/opt/puppet/libexec/mcollective/mcollective/agent/stageit.rb':
     ensure => file,
