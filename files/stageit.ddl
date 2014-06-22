@@ -1,5 +1,5 @@
 metadata :name        => 'stageit',
-         :description => 'Runs puppet apply on a Base64 encoded manifest,
+         :description => 'Runs puppet apply on a Base64 encoded manifest',
          :author      => 'jeremy@puppetlabs.com',
          :license     => 'Apache v2 - No warranty',
          :version     => '1.0',
