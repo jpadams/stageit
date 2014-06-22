@@ -15,7 +15,7 @@ module MCollective
         file.write(manifest)
         file.close
         puppet = 'C:/Progra~2/Puppet~1/Puppet~1/bin/puppet.bat'
-        command = "#{puppet} apply #{path} --detailed-exitcodes"
+        command = "cmd /c \"#{puppet} apply #{path} --detailed-exitcodes\""
         reply[:status] = run(command,:stdout => :out, :stderr => :err, :chomp => true)
         file.unlink
         reply

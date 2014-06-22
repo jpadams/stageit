@@ -4,7 +4,7 @@ metadata :name        => 'stageit',
          :license     => 'Apache v2 - No warranty',
          :version     => '1.0',
          :url         => 'http://www.puppetlabs.com',
-         :timeout     => 15
+         :timeout     => 45 
  
 action "run", :description => 'Runs puppet apply on a Base64 encoded manifest on Linux agents' do
   display :always
