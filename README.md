@@ -11,6 +11,7 @@ This means that you'll be able to see if:
 
 <http://docs.puppetlabs.com/references/latest/man/apply.html>
 
+**example**
 ```puppet
 file { 'C:/foobar':
   ensure => directory,
