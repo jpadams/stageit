@@ -11,8 +11,6 @@ module MCollective
 
         file = Tempfile.new('stageit')
         path = file.path
-        #create_manifest = "echo " + request[:manifest] + " | base64 -d > " + path
-        #`#{create_manifest}`
         manifest = Base64.decode64(request[:manifest])
         file.write(manifest)
         file.close
