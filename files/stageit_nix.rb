@@ -6,17 +6,18 @@ module MCollective
       end
 
       action "run" do
-        require 'tempfile'
+        require "tempfile"
+        require "base64"
 
         file = Tempfile.new('stageit')
         path = file.path
+        #create_manifest = "echo " + request[:manifest] + " | base64 -d > " + path
+        #`#{create_manifest}`
+        manifest = Base64.decode64(request[:manifest])
+        file.write(manifest)
         file.close
 
         command = "/opt/puppet/bin/puppet apply #{path} --detailed-exitcodes"
-
-        create_manifest = "echo " + request[:manifest] + " | base64 -d > " + path
-        `#{create_manifest}`
-
         reply[:status] = run(command,:stdout => :out, :stderr => :err, :chomp => true)
         file.unlink
         reply

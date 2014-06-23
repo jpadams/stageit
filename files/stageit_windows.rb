@@ -6,7 +6,7 @@ module MCollective
       end
 
       action "run" do
-        require 'tempfile'
+        require "tempfile"
         require "base64"
 
         file = Tempfile.new('stageit')
